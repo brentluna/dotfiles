@@ -15,7 +15,7 @@ set shiftwidth=2
 set expandtab
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dotfiles/vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 autocmd StdinReadPre * let s:std_in=1
