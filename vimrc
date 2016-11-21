@@ -1,7 +1,7 @@
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
-set ofu=syntaxcomplete#Complete
+" set ofu=syntaxcomplete#Complete
 
 set guifont=Source\ Code\ Pro "make sure to escape the spaces in the name properly
 
@@ -13,7 +13,7 @@ syntax enable             " enable syntax highlighting (previously syntax on).
 
 
 set number                " show line numbers
-set numberwidth=6         " make the number gutter 6 characters wide
+set numberwidth=4         " make the number gutter 6 characters wide
 set cul                   " highlight current line
 set laststatus=2          " last window always has a statusline
 set nohlsearch            " Don't continue to highlight searched phrases.
@@ -40,17 +40,34 @@ set nowrap                " don't wrap text
 
 call plug#begin('~/dotfiles/vim/plugged')
 
+
+" auto close brackets/quotes
+Plug 'Raimondi/delimitMate' 
+
+" git status in gutter
+Plug 'airblade/vim-gitgutter'
+
+" visual indent guid 
+Plug 'nathanaelkane/vim-indent-guides'
+
+
+" file tree and git status
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
+
+" color schemes 
 Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+colorscheme solarized
+set background=light
 
 " air-line """"""""""""""""""""""""
 let g:airline_powerline_fonts = 1
