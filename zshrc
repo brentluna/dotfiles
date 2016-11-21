@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias rtest='bundle exec rspec'
 alias dk='cd; cd Desktop'
 

@@ -4,7 +4,7 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 set ofu=syntaxcomplete#Complete
 
-
+set guifont=Source\ Code\ Pro "make sure to escape the spaces in the name properly
 
 set linespace=1
 set showtabline=2
@@ -41,7 +41,7 @@ set nowrap                " don't wrap text
 
 call plug#begin('~/dotfiles/vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
