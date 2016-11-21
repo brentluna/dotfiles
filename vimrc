@@ -1,4 +1,3 @@
-
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
