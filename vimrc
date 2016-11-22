@@ -102,4 +102,5 @@ let g:airline_symbols.linenr = ''
 
 
 :imap jk <Esc>
+:imap jj  <End>
 command NT NERDTree
