@@ -43,7 +43,8 @@ call plug#begin('~/dotfiles/vim/plugged')
 
 " auto close brackets/quotes
 Plug 'Raimondi/delimitMate' 
-
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_expand_space = 1
 " git status in gutter
 Plug 'airblade/vim-gitgutter'
 
@@ -68,12 +69,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " color schemes 
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'jonathanfilip/vim-lucius'
 
 call plug#end()
 
-set background=light
-colorscheme gruvbox 
-let g:gruvbox_contrast_light='soft'
+"set background=dark
+colorscheme Tomorrow 
+
+"let g:gruvbox_contrast_dark='hard'
 " air-line """"""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 
