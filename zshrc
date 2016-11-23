@@ -108,3 +108,5 @@ eval "$(rbenv init -)"
 
 
 PATH=/usr/local/pgsql/bin:$PATH\
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -59,6 +59,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
+" fuzzy file finder 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+
+
 
 " color schemes 
 Plug 'morhetz/gruvbox'
@@ -99,8 +104,13 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 """""""""""""""""""""""""""""""""""""""""
-
+if has('unix')
+ let g:fzf_launcher = 'urxvt -geometry 120x30 -e sh -c %s'
+endif
 
 :imap jk <Esc>
 :imap <C-l> <End>
+" Use space to find next space in line
+noremap  <Space> f<Space>
+
 command NT NERDTree
