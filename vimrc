@@ -35,7 +35,14 @@ set smartindent           " automatically insert one extra level of indentation
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
+" stop vim form creating automatic backups
+set noswapfile
+set nobackup
+set nowb
 
+"spell check 
+set spell
+set spelllang=en
 
 
 call plug#begin('~/dotfiles/vim/plugged')
@@ -65,17 +72,25 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
 
 
+"html 
+Plug 'mattn/emmet-vim'
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" better JSON
+Plug 'elzr/vim-json'
 
 " color schemes 
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'jonathanfilip/vim-lucius'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
-"set background=dark
-colorscheme Tomorrow 
+set background=light
+colorscheme PaperColor 
 
 "let g:gruvbox_contrast_dark='hard'
 " air-line """"""""""""""""""""""""
