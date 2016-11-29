@@ -3,7 +3,7 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 " set ofu=syntaxcomplete#Complete
 
-set guifont=Source\ Code\ Pro "make sure to escape the spaces in the name properly
+set guifont=Source\ Code\ Pro\ 11 "make sure to escape the spaces in the name properly
 
 set linespace=1
 set showtabline=2
@@ -11,6 +11,10 @@ set showtabline=2
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 
+:set textwidth=80
+
+au BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 set number                " show line numbers
 set numberwidth=4         " make the number gutter 6 characters wide
@@ -41,8 +45,8 @@ set nobackup
 set nowb
 
 "spell check 
-set spell
-set spelllang=en
+"set spell
+"set spelllang=en
 
 
 call plug#begin('~/dotfiles/vim/plugged')
@@ -126,6 +130,14 @@ let g:airline_symbols.linenr = ''
 if has('unix')
  let g:fzf_launcher = 'urxvt -geometry 120x30 -e sh -c %s'
 endif
+
+"easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
 
 :imap jk <Esc>
 :imap <C-l> <End>
