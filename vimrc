@@ -3,8 +3,8 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 " set ofu=syntaxcomplete#Complete
 
-set guifont=Source\ Code\ Pro\ 11 "make sure to escape the spaces in the name properly
-
+set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name properly
+set encoding=utf-8
 set linespace=1
 set showtabline=2
 
@@ -100,32 +100,32 @@ colorscheme PaperColor
 " air-line """"""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 
-if !exists('g:airline_symbols')
-     let g:airline_symbols = {}
-endif
+"if !exists('g:airline_symbols')
+ ""    let g:airline_symbols = {}
+""endif
 
 
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+"
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
+let g:arline_powwerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""
 if has('unix')
  let g:fzf_launcher = 'urxvt -geometry 120x30 -e sh -c %s'
