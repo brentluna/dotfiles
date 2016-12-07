@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+#echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.profile
 export PATH="$PATH:/home/brent/bin"
 export  EDITOR='subl -w'
 #export EDITOR=/usr/local/bin/subl
@@ -109,4 +111,5 @@ eval "$(rbenv init -)"
 
 PATH=/usr/local/pgsql/bin:$PATH\
 
+PATH="/usr/local/heroku/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

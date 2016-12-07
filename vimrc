@@ -3,7 +3,13 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 " set ofu=syntaxcomplete#Complete
 
-set guifont=Source\ Code\ Pro\ 11 "make sure to escape the spaces in the name properly
+set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name properly
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
 
 set linespace=1
 set showtabline=2
@@ -25,6 +31,7 @@ set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
 set showmatch
+set mat=2                 " how many 10ths of a second to blink matching bracket
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 " set visualbell
  
@@ -43,6 +50,10 @@ set nowrap                " don't wrap text
 set noswapfile
 set nobackup
 set nowb
+
+" Ignore compiled files
+set wildignore+=*/tmp/*,*.swp,*.zip,*.gif,*.jpg,*.png,*.sketch,*.psd,.git/*
+set wildignore+=*.DS_Store,.tmp/*,.log/*,lib/*,node_modules/*,vendor/*
 
 "spell check 
 "set spell
@@ -73,8 +84,10 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 " fuzzy file finder 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
 
+Plug 'junegunn/fzf.vim'
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "html 
 Plug 'mattn/emmet-vim'
@@ -84,6 +97,8 @@ Plug 'mxw/vim-jsx'
 " better JSON
 Plug 'elzr/vim-json'
 
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 " color schemes 
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
@@ -100,31 +115,31 @@ colorscheme PaperColor
 " air-line """"""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 
-if !exists('g:airline_symbols')
-     let g:airline_symbols = {}
-endif
+"if !exists('g:airline_symbols')
+""     let g:airline_symbols = {}
+"endif
 
 
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
 """""""""""""""""""""""""""""""""""""""""
 if has('unix')
@@ -137,7 +152,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
+"ctrl p to :FZF for file search
+nnoremap <C-p> :FZF <Enter>
 
 :imap jk <Esc>
 :imap <C-l> <End>
