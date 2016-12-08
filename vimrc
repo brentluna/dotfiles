@@ -7,7 +7,7 @@ set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name
 hi htmlArg gui=italic
 hi Comment gui=italic
 hi Type    gui=italic
-hi htmlArg cterm=italic
+highlight htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
 
@@ -42,7 +42,6 @@ set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%
  
 
 set autoindent            " auto-indent
-set tabstop=2             " tab spacing
 set softtabstop=2         " unify
 set shiftwidth=2          " indent/outdent by 2 columns
 set shiftround            " always indent/outdent to the nearest tabstop
@@ -109,6 +108,18 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'NLKNguyen/papercolor-theme'
+
+
+
+
+Plug 'Valloric/YouCompleteMe'
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+
+Plug 'ternjs/tern_for_vim'
 
 call plug#end()
 
