@@ -17,7 +17,10 @@ set showtabline=2
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 
-:set textwidth=80
+set textwidth=80
+set colorcolumn=+1
+set mouse=a
+set ttyfast
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -84,10 +87,9 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 " fuzzy file finder 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 Plug 'junegunn/fzf.vim'
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "html 
 Plug 'mattn/emmet-vim'
@@ -142,9 +144,13 @@ let g:airline_powerline_fonts = 1
 "let g:airline_symbols.linenr = ''
 
 """""""""""""""""""""""""""""""""""""""""
-if has('unix')
+if has('unix') && !has('mac')
  let g:fzf_launcher = 'urxvt -geometry 120x30 -e sh -c %s'
 endif
+
+"if has('mac')
+""  let g:fzf_launcher = 'in_new_term_function %s'
+"endif
 
 "easier split navigation
 nnoremap <C-J> <C-W><C-J>
