@@ -10,6 +10,8 @@ hi Type    gui=italic
 highlight htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
+set t_ZH=[3m
+set t_ZR=[23m
 
 set linespace=1
 set showtabline=2
