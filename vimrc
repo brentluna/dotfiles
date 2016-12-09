@@ -4,14 +4,6 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 " set ofu=syntaxcomplete#Complete
 
 set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name properly
-hi htmlArg gui=italic
-hi Comment gui=italic
-hi Type    gui=italic
-highlight htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type    cterm=italic
-set t_ZH=[3m
-set t_ZR=[23m
 
 set linespace=1
 set showtabline=2
@@ -24,7 +16,7 @@ set colorcolumn=+1
 set mouse=a
 set ttyfast
 set lazyredraw
-
+set clipboard=unnamed
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -92,7 +84,7 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' 
 
 "html 
 Plug 'mattn/emmet-vim'
@@ -125,10 +117,10 @@ Plug 'ternjs/tern_for_vim'
 
 call plug#end()
 
-set background=light
-colorscheme PaperColor 
-
-"let g:gruvbox_contrast_dark='hard'
+set background=dark
+"colorscheme PaperColor 
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 " air-line """"""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 
@@ -154,5 +146,44 @@ nnoremap <C-p> :FZF <Enter>
 :imap <C-l> <End>
 " Use space to find next space in line
 noremap  <Space> f<Space>
+
+set t_ZH=[3m
+set t_ZR=[23m
+highlight htmlArg cterm=italic
+highlight Comment cterm=italic
+highlight Type cterm=italic
+
+" The default highlighting.
+hi link xmlTodo		Todo
+hi link xmlTag		Function
+hi link xmlTagName		Function
+hi link xmlEndTag		Identifier
+if !exists("g:xml_namespace_transparent")
+    hi link xmlNamespace	Tag
+endif
+hi link xmlEntity		Statement
+hi link xmlEntityPunct	Type
+
+hi link xmlAttribPunct	Comment
+hi link xmlAttrib		Type
+
+hi link xmlString		String
+hi link xmlComment		Comment
+hi link xmlCommentStart	xmlComment
+hi link xmlCommentPart	Comment
+hi link xmlCommentError	Error
+hi link xmlError		Error
+
+hi link xmlProcessingDelim	Comment
+hi link xmlProcessing	Type
+
+hi link xmlCdata		String
+hi link xmlCdataCdata	Statement
+hi link xmlCdataStart	Type
+hi link xmlCdataEnd		Type
+
+hi link xmlDocTypeDecl	Function
+hi link xmlDocTypeKeyword	Statement
+hi link xmlInlineDTD	Function
 
 command NT NERDTree
