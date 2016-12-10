@@ -31,7 +31,7 @@ set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
 set showmatch
 set mat=2                 " how many 10ths of a second to blink matching bracket
-set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 " set visualbell
 
 
@@ -60,6 +60,58 @@ set wildignore+=*.DS_Store,.tmp/*,.log/*,lib/*,node_modules/*,vendor/*
 
 call plug#begin('~/dotfiles/vim/plugged')
 
+Plug 'Shougo/neocomplete.vim'
+" Declare a few things we'll use later
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" Disable AutoComplPop - Neocomplete needs this to work right
+let g:acp_enableAtStartup = 0
+
+" Enable/Disable by default
+let g:neocomplete#enable_at_startup = 0
+
+" Smart case  
+let g:neocomplete#enable_smart_case = 1
+
+" Auto close the preview window after making selection
+let g:neocomplete#enable_auto_close_preview = 1
+
+" Set minimum keyword length for completion to be included
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Set minimum input length before neocomplete popup appears
+let g:neocomplete#auto_completion_start_length = 3
+
+" JS dictionary
+let g:neocomplete#force_omni_input_patterns.javascript   = '[^. \t]\.\w*'
+let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*'
+
+" Maps to use up/down to navigate (didnt end up liking)
+" inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+" inoremap <expr><Up> pumvisible() ? "\<Up>" : "\<Up>"
+
+" Map to use <tab> to navigate
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Map to toggle on/off
+map <Leader>neo <ESC>:NeoCompleteToggle<CR>
+
+" Define omni completes per filetype
+aug omnicomplete
+  au!
+  au FileType css setl omnifunc=csscomplete#CompleteCSS
+  au FileType markdown setl omnifunc=htmlcomplete#CompleteTags
+  au FileType html,htmldjango,jinja setl omnifunc=emmet#completeTag
+  au FileType javascript setl omnifunc=tern#Complete
+  au FileType python setl omnifunc=pythoncomplete#Complete
+  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+aug END
+
 
 " auto close brackets/quotes
 Plug 'Raimondi/delimitMate'
@@ -79,7 +131,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-
+let g:airline_section_y = ''
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
