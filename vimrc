@@ -33,7 +33,7 @@ set showmatch
 set mat=2                 " how many 10ths of a second to blink matching bracket
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 " set visualbell
- 
+
 
 set autoindent            " auto-indent
 set softtabstop=2         " unify
@@ -53,7 +53,7 @@ set nowb
 set wildignore+=*/tmp/*,*.swp,*.zip,*.gif,*.jpg,*.png,*.sketch,*.psd,.git/*
 set wildignore+=*.DS_Store,.tmp/*,.log/*,lib/*,node_modules/*,vendor/*
 
-"spell check 
+"spell check
 "set spell
 "set spelllang=en
 
@@ -62,13 +62,13 @@ call plug#begin('~/dotfiles/vim/plugged')
 
 
 " auto close brackets/quotes
-Plug 'Raimondi/delimitMate' 
+Plug 'Raimondi/delimitMate'
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 " git status in gutter
 Plug 'airblade/vim-gitgutter'
 
-" visual indent guid 
+" visual indent guid
 Plug 'nathanaelkane/vim-indent-guides'
 
 
@@ -80,13 +80,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
-" fuzzy file finder 
+" fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""' 
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-"html 
+"html
 Plug 'mattn/emmet-vim'
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -96,7 +96,7 @@ Plug 'elzr/vim-json'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-" color schemes 
+" color schemes
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -106,19 +106,11 @@ Plug 'NLKNguyen/papercolor-theme'
 
 
 
-Plug 'Valloric/YouCompleteMe'
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_of_chars_for_completion = 3
-
-Plug 'ternjs/tern_for_vim'
 
 call plug#end()
 
 set background=dark
-"colorscheme PaperColor 
+"colorscheme PaperColor
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 " air-line """"""""""""""""""""""""
