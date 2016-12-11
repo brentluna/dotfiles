@@ -25,7 +25,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 set number                " show line numbers
-set numberwidth=4         " make the number gutter 6 characters wide
+set numberwidth=2         " make the number gutter 6 characters wide
 set cul                   " highlight current line
 set laststatus=2          " last window always has a statusline
 set nohlsearch            " Don't continue to highlight searched phrases.
@@ -134,6 +134,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline_section_y = ''
+let g:airline_powerline_fonts = 1
+"Plug 'itchyny/lightline.vim'
+
+
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -163,12 +167,13 @@ Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
-set background=dark
+
+
+ set background=dark
 "colorscheme PaperColor
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 " air-line """"""""""""""""""""""""
-let g:airline_powerline_fonts = 1
 
 
 if has('unix') && !has('mac')
