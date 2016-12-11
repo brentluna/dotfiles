@@ -136,7 +136,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "let g:airline_section_y = ''
 "let g:airline_powerline_fonts = 1
 Plug 'itchyny/lightline.vim'
-
+Plug 'itchyny/vim-gitbranch'
 
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -246,8 +246,11 @@ hi link xmlInlineDTD	Function
 
 let g:lightline = {
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
-      \     'right': [ [ 'lineinfo' ], [ 'percent' ], []]
+      \     'left': [ [ 'mode', 'paste' ],['gitbranch'], [ 'readonly', 'relativepath', 'modified' ] ],
+      \     'right': [ [ 'lineinfo' ], [ 'percent' ]]
       \   },
+      \   'component_function': {
+      \     'gitbranch': 'gitbranch#name'
+      \    },
       \    'colorscheme': 'jellybeans',
       \ }
