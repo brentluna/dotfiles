@@ -11,7 +11,7 @@ set showtabline=2
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 set mouse=a
 set ttyfast
@@ -34,7 +34,7 @@ set mat=2                 " how many 10ths of a second to blink matching bracket
 "set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 " set visualbell
 
-
+set splitbelow            " opens new splits at bottom
 set autoindent            " auto-indent
 set softtabstop=2         " unify
 set shiftwidth=2          " indent/outdent by 2 columns
