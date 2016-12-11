@@ -89,7 +89,7 @@ let g:neocomplete#auto_completion_start_length = 3
 
 " JS dictionary
 let g:neocomplete#force_omni_input_patterns.javascript   = '[^. \t]\.\w*'
-let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*'
+"let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*'
 
 " Maps to use up/down to navigate (didnt end up liking)
 " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
