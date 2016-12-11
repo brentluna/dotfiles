@@ -185,7 +185,7 @@ endif
 "endif
 
 "NerdTree remaps
-command NT NERDTree
+"command NT NERDTree
 nmap <leader>nt :NERDTreeToggle <Enter>
 
 "easier split navigation
@@ -244,4 +244,10 @@ hi link xmlDocTypeDecl	Function
 hi link xmlDocTypeKeyword	Statement
 hi link xmlInlineDTD	Function
 
-
+let g:lightline = {
+      \   'active': {
+      \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \     'right': [ [ 'lineinfo' ], [ 'percent' ], []]
+      \   },
+      \    'colorscheme': 'jellybeans',
+      \ }
