@@ -2,7 +2,7 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 " set ofu=syntaxcomplete#Complete
-
+let mapleader = ' '
 set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name properly
 
 set linespace=1
@@ -188,7 +188,7 @@ nnoremap <C-p> :FZF <Enter>
 :imap jk <Esc>
 :imap <C-l> <End>
 " Use space to find next space in line
-noremap  <Space> f<Space>
+"noremap  <Space> f<Space>
 
 set t_ZH=[3m
 set t_ZR=[23m
