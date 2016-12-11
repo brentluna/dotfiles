@@ -132,10 +132,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-let g:airline_section_y = ''
-let g:airline_powerline_fonts = 1
-"Plug 'itchyny/lightline.vim'
+"Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+"let g:airline_section_y = ''
+"let g:airline_powerline_fonts = 1
+Plug 'itchyny/lightline.vim'
 
 
 " fuzzy file finder
@@ -184,6 +184,10 @@ endif
 ""  let g:fzf_launcher = 'in_new_term_function %s'
 "endif
 
+"NerdTree remaps
+command NT NERDTree
+nmap <leader>nt :NERDTreeToggle <Enter>
+
 "easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -198,6 +202,9 @@ nnoremap <C-p> :FZF <Enter>
 " Use space to find next space in line
 "noremap  <Space> f<Space>
 
+
+
+"some settings to get hightlighting
 set t_ZH=[3m
 set t_ZR=[23m
 highlight htmlArg cterm=italic
@@ -237,4 +244,4 @@ hi link xmlDocTypeDecl	Function
 hi link xmlDocTypeKeyword	Statement
 hi link xmlInlineDTD	Function
 
-command NT NERDTree
+
