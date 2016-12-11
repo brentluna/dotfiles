@@ -5,6 +5,9 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 let mapleader = ' '
 set guifont=Operator\ Mono\ Book\ 11 "make sure to escape the spaces in the name properly
 
+" wrap text in preview window
+autocmd BufEnter * if &previewwindow | setl wrap linebreak nolist | endif
+
 set linespace=1
 set showtabline=2
 
