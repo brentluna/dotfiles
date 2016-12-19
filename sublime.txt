@@ -1,3 +1,4 @@
+//key bindings
 
 [{ "keys": ["j", "k"], "command": "exit_insert_mode",
 	"context":
@@ -17,7 +18,40 @@
 { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
     [ {"key": "control", "operand": "sidebar_tree"} ] }
 
-
-	
 ]
+
+//settings 
+
+{
+	"binary_file_patterns":
+	[
+		"dist/*",
+		"node_modules/*",
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"log/*",
+		"tmp/*",
+		"bundle.js",
+		"bundle.js.map"
+	],
+	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
+	"font_size": 14,
+	"ignored_packages":
+	[
+	],
+	"tab_size": 2
+}
+
+
 
