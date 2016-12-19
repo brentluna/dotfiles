@@ -124,7 +124,7 @@ Plug 'airblade/vim-gitgutter'
 
 " visual indent guid
 Plug 'nathanaelkane/vim-indent-guides'
-
+let g:indent_guides_enable_on_vim_startup = 0
 
 " file tree and git status
 Plug 'scrooloose/nerdtree'
@@ -137,6 +137,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "let g:airline_powerline_fonts = 1
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+" add modified status to lightline 
+Plug 'mhinz/vim-signify'
+
+
 
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -146,14 +150,18 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "html
 Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
+
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+
 " better JSON
 Plug 'elzr/vim-json'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+
 " color schemes
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
@@ -173,7 +181,6 @@ call plug#end()
 "colorscheme PaperColor
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
-" air-line """"""""""""""""""""""""
 
 
 if has('unix') && !has('mac')
@@ -244,13 +251,34 @@ hi link xmlDocTypeDecl	Function
 hi link xmlDocTypeKeyword	Statement
 hi link xmlInlineDTD	Function
 
+"Function to create signify in lightline 
+function! LightlineVCS()
+  let symbols = ['+', '-', '~']
+  let [added, modified, removed] = sy#repo#get_stats()
+  let stats = [added, removed, modified]  " reorder
+  let hunkline = ''
+
+  for i in range(3)
+    if stats[i] > 0
+      let hunkline .= printf('%s%s ', symbols[i], stats[i])
+    endif
+  endfor
+
+  if !empty(hunkline)
+    let hunkline = printf(' [%s]', hunkline[:-2])
+  endif
+
+  return hunkline
+endfunction
+
 let g:lightline = {
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ],['gitbranch'], [ 'readonly', 'relativepath', 'modified' ] ],
+      \     'left': [ [ 'mode', 'paste' ],['gitbranch', 'vcs'], [ 'readonly', 'relativepath', 'modified' ] ],
       \     'right': [ [ 'lineinfo' ], [ 'percent' ]]
       \   },
       \   'component_function': {
-      \     'gitbranch': 'gitbranch#name'
+      \     'gitbranch': 'gitbranch#name',
+      \     'vcs': 'LightlineVCS'
       \    },
       \    'colorscheme': 'jellybeans',
       \ }
