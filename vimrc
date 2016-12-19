@@ -137,11 +137,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "let g:airline_section_y = ''
 "let g:airline_powerline_fonts = 1
 Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
 " add modified status to lightline 
 Plug 'mhinz/vim-signify'
 
-
+Plug 'tpope/vim-fugitive'
 
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -273,14 +272,19 @@ function! LightlineVCS()
   return hunkline
 endfunction
 
+function! LightlineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
 let g:lightline = {
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ],['gitbranch', 'vcs'], [ 'readonly', 'relativepath', 'modified' ] ],
+      \     'left': [ [ 'mode', 'paste' ],['fugitive', 'vcs'], [ 'readonly', 'relativepath', 'modified' ] ],
       \     'right': [ [ 'lineinfo' ], [ 'percent' ]]
       \   },
       \   'component_function': {
       \     'gitbranch': 'gitbranch#name',
-      \     'vcs': 'LightlineVCS'
+      \     'vcs': 'LightlineVCS',
+      \   'fugitive': 'LightlineFugitive'
       \    },
-      \    'colorscheme': 'jellybeans',
+      \   'colorscheme': 'jellybeans',
       \ }
