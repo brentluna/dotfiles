@@ -62,6 +62,7 @@ set wildignore+=*.DS_Store,.tmp/*,.log/*,lib/*,node_modules/*,vendor/*
 
 
 call plug#begin('~/dotfiles/vim/plugged')
+
 Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/neocomplete.vim'
 " Declare a few things we'll use later
@@ -161,6 +162,7 @@ Plug 'elzr/vim-json'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
 
 " color schemes
 Plug 'morhetz/gruvbox'
